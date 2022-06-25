@@ -99,21 +99,26 @@ class Result:
         self.body["keyword"] = self.kw
         r = requests.post(URL, data=BODY)
         c = _analyze(r.text).split("  ")
-        self.content = {
-            "sbd": c[0],
-            "ten": c[1],
-            "ngaysinh": c[2],
-            "truong": c[3],
-            "diemkk": float(c[4]),
-            "nguvan": float(c[5]),
-            "tienganh": float(c[6]),
-            "toantluan": float(c[7]),
-            "toantngiem": float(c[8]),
-            "toantong": float(c[9]),
-            "chuyen": float(c[10]),
-            "tongchuyen": float(c[11]),
-            "tongdaitra": float(c[12]),
-        }
+        self.exist = True
+        try:
+            self.content = {
+                "sbd": c[0],
+                "ten": c[1],
+                "ngaysinh": c[2],
+                "truong": c[3],
+                "diemkk": float(c[4]),
+                "nguvan": float(c[5]),
+                "tienganh": float(c[6]),
+                "toantluan": float(c[7]),
+                "toantngiem": float(c[8]),
+                "toantong": float(c[9]),
+                "chuyen": float(c[10]),
+                "tongchuyen": float(c[11]),
+                "tongdaitra": float(c[12]),
+            }
+        except ValueError:
+            self.content = {}
+            self.exist = False
 
     def to_json(self) -> str:
         return json.dumps(self.content, ensure_ascii=False)
