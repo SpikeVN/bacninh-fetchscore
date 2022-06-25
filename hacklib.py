@@ -122,4 +122,4 @@ class Result:
         return self.content
 
     def to_csv(self) -> str:
-        return "".join([i + "," for i in self.content.values()])
+        return "".join([str(i) + "," for i in self.content.values()])
