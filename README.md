@@ -3,10 +3,26 @@ Fetches score using reverse engineered API
 
 ## doc
 ```py
-class    Result(identifier: str)
-- method    to_dict()   ->   dict
-- method    to_json()   ->   str
-- method    to_csv()    ->   str
+class Result()
+    parameter   identifier        str
+
+    property    id                str
+    property    name              str
+    property    birth_date        datetime
+    property    school_name       str
+    property    kk_score          float
+    property    ngu_van           float
+    property    tieng_anh         float
+    property    toan_tluan        float
+    property    toan_tngiem       float
+    property    toan_tong         float
+    property    mon_chuyen        float
+    property    tong_chuyen       float
+    property    tong_daitra       float
+
+    method      to_dict()   ->    dict
+    method      to_json()   ->    str
+    method      to_csv()    ->    str
 ```
 ### dict structure
 ```py
@@ -33,4 +49,5 @@ import hacklib
 
 someone = hacklib.Result("012345")
 someone.to_dict()  # -> {"sbd": ..., "ten": ..., ...}
+print(someone.name) # -> JONATHAN GALINDO
 ```
