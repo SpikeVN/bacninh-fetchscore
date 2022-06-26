@@ -45,9 +45,9 @@ class Result()
 
 ## example
 ```py
-import hacklib
+import hackbn
 
-someone = hacklib.Result("012345")
-someone.to_dict()  # -> {"sbd": ..., "ten": ..., ...}
+someone = hackbn.Result("012345")
+print(someone.to_dict())  # -> {"sbd": ..., "ten": ..., ...}
 print(someone.name) # -> JONATHAN GALINDO
 ```
